@@ -44,11 +44,9 @@ public class Map_2 {
         for(int i = 0; i < strings.length; i++){
             String key = strings[i];
             if(stringCount.containsKey(key)){
+                stringCount.put(key, stringCount.get(key) + 1);
                 if(stringCount.get(strings[i]) % 2 == 0){
                     append += key;
-                }
-                else{
-                    stringCount.put(key, stringCount.get(key) + 1);
                 }
             }
             else{

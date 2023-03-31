@@ -68,5 +68,22 @@ public class Array_2 {
         return (sum - largest - smallest)/(nums.length - 2);
     }
 
+/*
+Return an array that contains the exact same numbers as the given array,
+but rearranged so that all the zeros are grouped at the start of the array.
+The order of the non-zero numbers does not matter. So {1, 0, 0, 1} becomes {0 ,0, 1, 1}.
+You may modify and return the given array or make a new array.
+ */
+    public static int[] zeroFront(int[] ints) {
+        int[] sortedInts = new int[ints.length];
+        int index = sortedInts.length - 1;
+        for(int i : ints){
+            if(i != 0){
+                sortedInts[index] = i;
+                index--;
+            }
+        }
 
+        return sortedInts;
+    }
 }

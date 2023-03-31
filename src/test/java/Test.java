@@ -1,8 +1,7 @@
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -122,9 +121,9 @@ public class Test {
         long[] looong = null;
         long[][] loooong = null;
         int nonsense;
-        System.out.println(array1);
+//        System.out.println(array1);
         Arrays.sort(unsortedArray);
-        System.out.println(Arrays.toString(unsortedArray));
+//        System.out.println(Arrays.toString(unsortedArray));
         assertTrue(Arrays.equals(new int[]{1,2,3,3,4,6,7}, unsortedArray));
     }
 
@@ -133,7 +132,9 @@ public class Test {
 //        List<String> strings = Arrays.asList("John", "Existential Dread", "yay");
 //        strings.replaceAll(s -> "y" + s + "y");
 //        System.out.println(strings);
-        assertTrue(false);
+        assertEquals(Arrays.asList("yay", "yby", "ycy"), Functional_1.moreY(Arrays.asList("a", "b", "c")));
+        assertEquals(Arrays.asList("yhelloy", "ytherey"), Functional_1.moreY(Arrays.asList("hello", "there")));
+        assertEquals(Arrays.asList("yyayy"), Functional_1.moreY(Arrays.asList("yay")));
     }
 
     @org.junit.jupiter.api.Test
@@ -144,10 +145,22 @@ public class Test {
     }
 
     @org.junit.jupiter.api.Test
+    public void testNoTeen(){
+        assertEquals(Arrays.asList(12,20), Functional_2.noTeen(Stream.of(12,13,19,20).collect(Collectors.toList())));
+        assertEquals(Arrays.asList(1,1), Functional_2.noTeen(Stream.of(1,14,1).collect(Collectors.toList())));
+        assertEquals(Arrays.asList(), Functional_2.noTeen(Stream.of(15).collect(Collectors.toList())));
+    }
+
+    @org.junit.jupiter.api.Test
     public void testMaxMirror(){
         assertEquals(3,Array_3.maxMirror(new int[]{1,2,3,8,9,3,2,1}));
         assertEquals(3,Array_3.maxMirror(new int[]{1,2,1,4}));
         assertEquals(2,Array_3.maxMirror(new int[]{7,1,2,9,7,2,1}));
+        assertEquals(5, Array_3.maxMirror(new int[]{1,2,3,2,1}));
+        assertEquals(4, Array_3.maxMirror(new int[]{21, 22, 9, 8, 7, 6, 23, 24, 6, 7, 8, 9, 25, 7, 8, 9}));
+        assertEquals(2, Array_3.maxMirror(new int[]{1,2,3,3,8}));
+        assertEquals(1,Array_3.maxMirror(new int[]{1}));
+        assertEquals(3,Array_3.maxMirror(new int[]{9,1,1,4,2,1,1,1}));
     }
 
     @org.junit.jupiter.api.Test
@@ -155,6 +168,73 @@ public class Test {
         assertTrue(Logic_2.evenlySpaced(2,4,6));
         assertTrue(Logic_2.evenlySpaced(4,6,2));
         assertFalse(Logic_2.evenlySpaced(4,6,3));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testZeroFront(){
+        assertArrayEquals(new int[]{0,0,1,1}, Array_2.zeroFront(new int[]{1,0,0,1}));
+        assertArrayEquals(new int[]{0,0,1,1,1}, Array_2.zeroFront(new int[]{0,1,1,0,1}));
+        assertArrayEquals(new int[]{0,1}, Array_2.zeroFront(new int[]{1,0}));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testNoX(){
+        assertEquals(Arrays.asList("a","bb","c"), Functional_1.noX(Arrays.asList("ax","bb","cx")));
+        assertEquals(Arrays.asList("a","bb","c"), Functional_1.noX(Arrays.asList("xxax","xbxbx","xxcx")));
+        assertEquals(Arrays.asList(""), Functional_1.noX(Arrays.asList("x")));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testLower(){
+        assertEquals(Arrays.asList("hello", "hi"), Functional_1.lower(Arrays.asList("Hello", "Hi")));
+        assertEquals(Arrays.asList("aaa", "bbb", "ccc"), Functional_1.lower(Arrays.asList("AAA", "BBB", "ccc")));
+        assertEquals(Arrays.asList("kitten", "chocolate"), Functional_1.lower(Arrays.asList("KitteN", "ChocolaTE")));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testNo9(){
+        //Must use streams so that method can mutate the array (remove elements in the list)
+        assertEquals(Arrays.asList(1,2), Functional_2.no9(Stream.of(1,2,19)
+                                                                .collect(Collectors.toList())));
+        assertEquals(Arrays.asList(3), Functional_2.no9(Stream.of(9,19,29,3)
+                                                                .collect(Collectors.toList())));
+        assertEquals(Arrays.asList(1,2,3), Functional_2.no9(Stream.of(1,2,3)
+                                                                .collect(Collectors.toList())));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testTwo2(){
+        assertEquals(Arrays.asList(4,6), Functional_2.two2(Arrays.asList(1,2,3)));
+        assertEquals(Arrays.asList(4), Functional_2.two2(Arrays.asList(2,6,11)));
+        assertEquals(Arrays.asList(0), Functional_2.two2(Arrays.asList(0)));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testSquare56(){
+        assertEquals(Arrays.asList(19,11),Functional_2.square56(Arrays.asList(3,1,4)));
+        assertEquals(Arrays.asList(11),Functional_2.square56(Arrays.asList(1)));
+        assertEquals(Arrays.asList(14),Functional_2.square56(Arrays.asList(2)));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testRightDigit(){
+        assertEquals(Arrays.asList(1,2,3), Functional_1.rightDigit(Arrays.asList(1,22,93)));
+        assertEquals(Arrays.asList(6,8,6,8,1), Functional_1.rightDigit(Arrays.asList(16,8,886,8,1)));
+        assertEquals(Arrays.asList(0,0), Functional_1.rightDigit(Arrays.asList(10,0)));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testCloseFar(){
+        assertTrue(Logic_2.closeFar(1,2,10));
+        assertFalse(Logic_2.closeFar(1,2,3));
+        assertTrue(Logic_2.closeFar(4,1, 3));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testNotReplace(){
+        assertEquals("is not test", String_3.notReplace("is test"));
+        assertEquals("is not-is not", String_3.notReplace("is-is"));
+        assertEquals("This is not right", String_3.notReplace("This is right"));
     }
 }
 
