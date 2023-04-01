@@ -235,6 +235,7 @@ public class Test {
         assertEquals("is not test", String_3.notReplace("is test"));
         assertEquals("is not-is not", String_3.notReplace("is-is"));
         assertEquals("This is not right", String_3.notReplace("This is right"));
+        assertEquals("isis", String_3.notReplace("isis"));
     }
 }
 
