@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map;
 
 public class Map_2 {
 
@@ -54,5 +55,16 @@ public class Map_2 {
             }
         }
         return append;
+    }
+
+    //Given an array of non=empty strings, create and return a Map<String, String> as follows:
+    //for each string add its first character as a key with its last character as the value.
+    public static Map<String, String> pairs(String[] strings){
+        Map<String, String> pairs = new HashMap<>();
+
+        for(String string : strings){
+            pairs.put(string.substring(0,1), string.substring(string.length()-1));
+        }
+        return pairs;
     }
 }

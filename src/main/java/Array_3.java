@@ -49,6 +49,104 @@ public class Array_3 {
         return max;
     }
 
+    public static boolean canBalance(int[] nums){
+        boolean balanced = false;
+
+        int sumFirstHalf = 0;
+        int sumSecondHalf = 0;
+        for(int i = 0; i < nums.length-1; i++){
+           sumFirstHalf += nums[i];
+           int j = i + 1;
+           do {
+              sumSecondHalf += nums[j];
+              j++;
+           } while(j < nums.length);
+           if(sumFirstHalf == sumSecondHalf){
+               return true;
+           }
+           sumSecondHalf = 0;
+        }
+        return balanced;
+    }
+
+
+//    Return an array that contains exactly the same numbers as the given array,
+//    but rearranged so that every 3 is immediately followed by a 4.
+//    Do not move the 3's, but every other number may move.
+//    The array contains the same number of 3's and 4's,
+//    every 3 has a number after it that is not a 3,
+//    and a 3 appears in the array before any 4.
+    public static int[] fix34(int[] nums){
+        int j = 0;
+        for(int i = 0; i < nums.length-1; i++){
+            if(nums[i] == 3){
+                //swap number at this index with index that equals 4
+                while(nums[i+1] != 4){
+                    if(nums[j] == 4){
+                        nums[j] = nums[i+1];
+                        nums[i+1] = 4;
+                    }
+                    else {
+                        j++;
+                    }
+                }
+            }
+        }
+        return nums;
+    }
+
+    /*
+    * Given n >= 0, create and array with the pattern {1, 1,2, 1,2,3, ... 1,2,3 .. n}
+    * (spaces added to show the grouping). Note that the length of the array with be 1 + 2 + 3 + ... + n,
+    * which is known to sum to exactly n * (n+1)/2.
+    * */
+    public static int[] seriesUp(int n) {
+
+        int[] series = new int[n*(n+1)/2];
+
+        int index = 0;
+        for(int i = 0; i < n; i++){
+            for(int j = 1; j <= i+1; j++){
+                series[index] = j;
+                index++;
+            }
+        }
+
+        return series;
+    }
+
+    /*
+    * Given two arrays of ints sorted in increasing order, outer and inner, return true if all of the numbers in inner appear in outer.
+    *  The best solution makes only a single "linear" pass of both arrays, taking advantage of the fact that both arrays are already in sorted order.
+     */
+    public static boolean linearIn(int[] outer, int[] inner){
+
+        //Edge case
+        if (inner.length == 0) {
+            return true;
+        }
+
+        int innerIndex = 0;
+        for(int i = 0; i < outer.length; i++){
+           if(outer[i] == inner[innerIndex]){
+               if(innerIndex < inner.length-1){
+                   innerIndex++;
+               }
+               else {
+                   return true;
+               }
+           }
+        }
+
+        return false;
+
+//        Elegant code someone wrote
+//        int j=0;
+//        for(int i=0;i<outer.length&&j<inner.length;i++)
+//            if(outer[i]==inner[j])j++;
+//        return j==inner.length;
+    }
+
 //    public static int maxMirror(int[] nums) {
 //        int max = 1;
 //        Boolean continuous = false;

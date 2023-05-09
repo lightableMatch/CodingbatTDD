@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -63,6 +62,13 @@ public class Test {
 //        boolean equal = Recursion_2.split53(nums);
 //        assertFalse(equal);
 //    }
+
+    @org.junit.jupiter.api.Test
+    public void testSplit53(){
+        assertEquals(true, Recursion_2.split53(new int[]{1,1}));
+        assertEquals(false, Recursion_2.split53(new int[]{1,1,1}));
+        assertEquals(true, Recursion_2.split53(new int[]{2,4,2}));
+    }
 
     @org.junit.jupiter.api.Test
     public void testFactorial(){
@@ -236,6 +242,87 @@ public class Test {
         assertEquals("is not-is not", String_3.notReplace("is-is"));
         assertEquals("This is not right", String_3.notReplace("This is right"));
         assertEquals("isis", String_3.notReplace("isis"));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGHappy(){
+        assertEquals(true, String_3.gHappy("xxggxx"));
+        assertEquals(false, String_3.gHappy("xxgxx"));
+        assertEquals(false, String_3.gHappy("xxggyygxx"));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testPairs(){
+        assertEquals(Map.of("b", "g", "c", "e"), Map_2.pairs(new String[]{"code", "bug"}));
+        assertEquals(Map.of("m", "n"), Map_2.pairs(new String[]{"man", "moon", "main"}));
+        assertEquals(Map.of("g", "d", "m", "n", "n", "t"), Map_2.pairs(new String[]{"man", "moon", "good", "night"}));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testStringBits(){
+        assertEquals("Hlo", Warmup_2.stringBits("Hello"));
+        assertEquals("H", Warmup_2.stringBits("Hi"));
+        assertEquals("Hello", Warmup_2.stringBits("Heeololeo"));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testAltPairs(){
+        assertEquals("kien", Warmup_2.altPairs("kitten"));
+        assertEquals("Chole", Warmup_2.altPairs("Chocolate"));
+        assertEquals("Congrr", Warmup_2.altPairs("CodingHorror"));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testCanBalance(){
+        assertEquals(true, Array_3.canBalance(new int[]{1,1,1,2,1}));
+        assertEquals(false, Array_3.canBalance(new int[]{2,1,1,2,1}));
+        assertEquals(true, Array_3.canBalance(new int[]{10,10}));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testWhenForLoopConditionalIsChecked(){
+        boolean checkedAfter = false;
+        for (int i = 0; i < 0; i++){
+            checkedAfter = true;
+        }
+        //For loop conditional is checked before entering loop
+        assertEquals(false,  checkedAfter);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testFix34(){
+        assertArrayEquals(new int[]{1,3,4,1}, Array_3.fix34(new int[]{1,3,1,4}));
+        assertArrayEquals(new int[]{1,3,4,1,1,3,4}, Array_3.fix34(new int[]{1,3,1,4,4,3,1}));
+        assertArrayEquals(new int[]{3,4,2,2}, Array_3.fix34(new int[]{3,2,2,4}));
+        assertArrayEquals(new int[]{5, 3, 4, 5, 5, 5, 5, 5, 3, 4, 3, 4}, Array_3.fix34(new int[]{5, 3, 5, 4, 5, 4, 5, 4, 3, 5, 3, 5}));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void sumDigits(){
+        assertEquals(6, String_3.sumDigits("aa1bc2d3"));
+        assertEquals(8, String_3.sumDigits("aa11b33"));
+        assertEquals(0, String_3.sumDigits("Chocolate"));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testArray220(){
+        assertEquals(true, Recursion_1.array220(new int[]{1,2,20}, 0));
+        assertEquals(true, Recursion_1.array220(new int[]{3,30}, 0));
+        assertEquals(false, Recursion_1.array220(new int[]{3}, 0));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testSeriesUp(){
+        assertArrayEquals(new int[]{1,1,2,1,2,3}, Array_3.seriesUp(3));
+        assertArrayEquals(new int[]{1,1,2,1,2,3,1,2,3,4}, Array_3.seriesUp(4));
+        assertArrayEquals(new int[]{1,1,2}, Array_3.seriesUp(2));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testLinearIn(){
+        assertTrue(Array_3.linearIn(new int[]{1,2,4,6}, new int[]{2,4}));
+        assertFalse(Array_3.linearIn(new int[]{1,2,4,6}, new int[]{2,3,4}));
+        assertTrue(Array_3.linearIn(new int[]{1,2,4,4,6}, new int[]{2,4}));
     }
 }
 

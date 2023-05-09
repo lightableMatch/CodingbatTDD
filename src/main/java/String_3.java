@@ -32,4 +32,50 @@ public class String_3 {
 
         return str;
     }
+
+    //We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
+    //Return true if all the g's in the given string are happy.
+    public static boolean gHappy(String str){
+
+        if(str.length() == 0){
+            return true;
+        }
+
+        boolean happy = false;
+        str = " " + str + " ";
+        for(int i = 1; i < str.length()-1; i++){
+           if(str.charAt(i) == 'g'){
+                if(str.charAt(i-1) == 'g' || str.charAt(i+1) == 'g'){
+                    happy = true;
+                }
+                else{
+                    return false;
+                }
+           }
+        }
+
+        return happy;
+    }
+
+    /*
+    Given a string, return the sum of the digits 0-9 that appear in the string,
+    ignoring all other characters. Return 0 if there are no digits in the string.
+    (Note: Character.isDigit(char) tests if a char is one of the chars '0', '1', .. '9'.
+    Integer.parseInt(string) converts a string to an int.)
+     */
+    public static int sumDigits(String str) {
+       int sum = 0;
+
+       //Loop form
+       for (int i = 0; i < str.length(); i++){
+           if(Character.isDigit(str.charAt(i))){
+               sum += Integer.parseInt(str.substring(i,i+1));
+           }
+       }
+
+       //Stream form
+
+
+       return sum;
+    }
 }
