@@ -78,4 +78,31 @@ public class String_3 {
 
        return sum;
     }
+
+    /*
+    *
+    * Given a string, count the number of words ending in 'y' or 'z' --
+    * so the 'y' in "heavy" and the 'z' in "fez" count, but not the 'y' in "yellow" (not case sensitive).
+    * We'll say that a y or z is at the end of a word if there is not an alphabetic letter immediately following it.
+    *  (Note: Character.isLetter(char) tests if a char is an alphabetic letter.)
+    * */
+    public static int countYZ(String str){
+        int count = 0;
+
+        String[] words = str.split("\\P{Alpha}+");
+
+        for(int i = 0; i < words.length; i++){
+            if(words[i].equals("")){
+                continue;
+            }
+            String word = words[i].toLowerCase();
+            int wordLength = word.length() - 1;
+            if(word.charAt(wordLength) == 'y' || (word.charAt(wordLength) == 'z')){
+                count++;
+            }
+
+        }
+
+        return count;
+    }
 }
