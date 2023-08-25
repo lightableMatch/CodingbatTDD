@@ -105,4 +105,22 @@ public class String_3 {
 
         return count;
     }
+
+    //Given a string, return true if the number of appearances of "is" anywhere in the string
+    // is equal to the number of appearances of "not" anywhere in the string (case sensitive).
+    public static boolean equalIsNot(String str){
+        int count = 0;
+        str+= " "; //Added a buffer index so substrings don't call past the string length
+
+        for(int i = 0; i < str.length()-2; i++){
+            String is = str.substring(i, i+2);
+            String not = str.substring(i, i+3);
+            if(is.equals("is"))
+                count++;
+            if(not.equals("not"))
+                count--;
+        }
+
+        return count == 0;
+    }
 }

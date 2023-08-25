@@ -67,4 +67,31 @@ public class Map_2 {
         }
         return pairs;
     }
+
+    //The classic word-count algorithm:
+    //Given an array of strings, return a Map<String, Integer> with a key for each different string,
+    // with the value the number of times that string appears in the array.
+    public static Map<String, Integer> wordCount(String[] strings){
+        Map<String, Integer> pairs = new HashMap<>();
+
+        for(int i = 0; i < strings.length; i++){
+            if(stringExists(strings[i], pairs)){
+                pairs.put(strings[i], pairs.get(strings[i]) + 1);
+            }
+            else{
+                pairs.put(strings[i], 1);
+            }
+        }
+
+        return pairs;
+    }
+
+    private static boolean stringExists(String string, Map<String, Integer> pairs){
+        for(int i = 0; i < pairs.size(); i++){
+            if(pairs.containsKey(string)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

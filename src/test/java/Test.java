@@ -344,8 +344,43 @@ public class Test {
      @org.junit.jupiter.api.Test
     public void testFizzArray2(){
         assertArrayEquals(new String[]{"0", "1", "2", "3"}, Array_2.fizzArray2(4));
-         assertArrayEquals(new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, Array_2.fizzArray2(10));
-         assertArrayEquals(new String[]{"0", "1"}, Array_2.fizzArray2(2));
+        assertArrayEquals(new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, Array_2.fizzArray2(10));
+        assertArrayEquals(new String[]{"0", "1"}, Array_2.fizzArray2(2));
+     }
+
+     @org.junit.jupiter.api.Test
+    public void testWordCount(){
+        assertEquals(Map.of("a",2,"b",2,"c",1), Map_2.wordCount(new String[]{"a", "b", "a", "c", "b"}));
+        assertEquals(Map.of("a",1,"b",1,"c",1), Map_2.wordCount(new String[]{"c", "b", "a"}));
+        assertEquals(Map.of("c", 4), Map_2.wordCount(new String[]{"c", "c", "c", "c"}));
+     }
+
+     @org.junit.jupiter.api.Test
+    public void testMakeChocolate(){
+        assertEquals(4, Logic_2.makeChocolate(4,1,9));
+        assertEquals(-1, Logic_2.makeChocolate(4,1,10));
+        assertEquals(2, Logic_2.makeChocolate(4,1,7));
+
+        //Address case when big chocolate bars exceeds the goal so you don't use all the big
+        assertEquals(2, Logic_2.makeChocolate(6,2,7));
+        assertEquals(0, Logic_2.makeChocolate(1,2,5));
+        assertEquals(-1, Logic_2.makeChocolate(1,2,7));
+
+     }
+
+     @org.junit.jupiter.api.Test
+    public void testNoTeenSum(){
+        assertEquals(6, Logic_2.noTeenSum(1,2,3));
+        assertEquals(3, Logic_2.noTeenSum(2,13,1));
+        assertEquals(3, Logic_2.noTeenSum(2,1,14));
+     }
+
+     @org.junit.jupiter.api.Test
+    public void testEqualIsNot(){
+        assertEquals(false, String_3.equalIsNot("This is not"));
+        assertEquals(true, String_3.equalIsNot("This is notnot"));
+        assertEquals(true, String_3.equalIsNot("noisxxnotyynotxisi"));
+        assertEquals(false, String_3.equalIsNot("noisxxnotyynotxsi"));
      }
 }
 
