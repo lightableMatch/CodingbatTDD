@@ -359,10 +359,7 @@ public class Test {
     public void testMakeChocolate(){
         assertEquals(4, Logic_2.makeChocolate(4,1,9));
         assertEquals(-1, Logic_2.makeChocolate(4,1,10));
-        assertEquals(2, Logic_2.makeChocolate(4,1,7));
-
-        //Address case when big chocolate bars exceeds the goal so you don't use all the big
-        assertEquals(2, Logic_2.makeChocolate(6,2,7));
+        assertEquals(2, Logic_2.makeChocolate(4,1,7)); //Address case when big chocolate bars exceeds the goal so you don't use all the big assertEquals(2, Logic_2.makeChocolate(6,2,7));
         assertEquals(0, Logic_2.makeChocolate(1,2,5));
         assertEquals(-1, Logic_2.makeChocolate(1,2,7));
 
@@ -381,6 +378,13 @@ public class Test {
         assertEquals(true, String_3.equalIsNot("This is notnot"));
         assertEquals(true, String_3.equalIsNot("noisxxnotyynotxisi"));
         assertEquals(false, String_3.equalIsNot("noisxxnotyynotxsi"));
+     }
+
+     @org.junit.jupiter.api.Test
+    public void testSumNumbers(){
+        assertEquals(123, String_3.sumNumbers("abc123xyz"));
+        assertEquals(44, String_3.sumNumbers("aa11b33"));
+        assertEquals(18, String_3.sumNumbers("7 11"));
      }
 }
 
