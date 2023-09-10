@@ -393,6 +393,13 @@ public class Test {
         assertEquals(3, Logic_2.luckySum(1,2,13));
         assertEquals(1, Logic_2.luckySum(1,13,3));
      }
+
+     @org.junit.jupiter.api.Test
+    public void testLoneSum(){
+        assertEquals(6, Logic_2.loneSum(1,2,3));
+        assertEquals(2, Logic_2.loneSum(3,2,3));
+        assertEquals(0, Logic_2.loneSum(3,3,3));
+     }
 }
 
 
