@@ -386,6 +386,13 @@ public class Test {
         assertEquals(44, String_3.sumNumbers("aa11b33"));
         assertEquals(18, String_3.sumNumbers("7 11"));
      }
+
+     @org.junit.jupiter.api.Test
+    public void testLuckySum(){
+        assertEquals(6, Logic_2.luckySum(1,2,3));
+        assertEquals(3, Logic_2.luckySum(1,2,13));
+        assertEquals(1, Logic_2.luckySum(1,13,3));
+     }
 }
 
 
