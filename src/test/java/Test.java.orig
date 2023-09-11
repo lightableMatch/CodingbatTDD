@@ -360,9 +360,6 @@ public class Test {
         assertEquals(4, Logic_2.makeChocolate(4,1,9));
         assertEquals(-1, Logic_2.makeChocolate(4,1,10));
         assertEquals(2, Logic_2.makeChocolate(4,1,7)); //Address case when big chocolate bars exceeds the goal so you don't use all the big assertEquals(2, Logic_2.makeChocolate(6,2,7));
-
-        //Address case when big chocolate bars exceeds the goal so you don't use all the big
-        assertEquals(2, Logic_2.makeChocolate(6,2,7));
         assertEquals(0, Logic_2.makeChocolate(1,2,5));
         assertEquals(-1, Logic_2.makeChocolate(1,2,7));
 
@@ -382,6 +379,8 @@ public class Test {
         assertEquals(true, String_3.equalIsNot("noisxxnotyynotxisi"));
         assertEquals(false, String_3.equalIsNot("noisxxnotyynotxsi"));
      }
+<<<<<<< HEAD
+=======
 
      @org.junit.jupiter.api.Test
     public void testSumNumbers(){
@@ -403,6 +402,8 @@ public class Test {
         assertEquals(2, Logic_2.loneSum(3,2,3));
         assertEquals(0, Logic_2.loneSum(3,3,3));
      }
+}
+>>>>>>> refs/remotes/origin/main
 
      @org.junit.jupiter.api.Test
     public void testCountClumps(){
@@ -411,6 +412,6 @@ public class Test {
         assertEquals(1, Array_3.countClumps(new int[]{1,1,1,1,1}));
         assertEquals(0, Array_3.countClumps(new int[]{}));
         assertEquals(3, Array_3.countClumps(new int[]{1,1,2,2,3,3}));
-     }
 
+     }
 }
