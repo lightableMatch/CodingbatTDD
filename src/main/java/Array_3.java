@@ -147,6 +147,25 @@ public class Array_3 {
 //        return j==inner.length;
     }
 
+
+    //Say that a 'clump' in an array is a series of 2 or more adjacent elements
+    // of the same value. Return the number of clumps in the given array.
+    public static int countClumps(int[] nums){
+
+        int clumps = 0;
+        boolean newClump = true;
+        for(int i = 0; i < nums.length-1; i++){
+            if(nums[i] == nums[i+1]){
+                if(newClump){
+                    clumps++;}
+                newClump = false;
+            }
+            else{
+                newClump = true;}
+        }
+        return clumps;
+    }
+
 //    public static int maxMirror(int[] nums) {
 //        int max = 1;
 //        Boolean continuous = false;

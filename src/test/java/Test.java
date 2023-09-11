@@ -382,6 +382,14 @@ public class Test {
         assertEquals(true, String_3.equalIsNot("noisxxnotyynotxisi"));
         assertEquals(false, String_3.equalIsNot("noisxxnotyynotxsi"));
      }
+
+     @org.junit.jupiter.api.Test
+    public void testCountClumps(){
+        assertEquals(2, Array_3.countClumps(new int[]{1,2,2,3,4,4}));
+        assertEquals(2, Array_3.countClumps(new int[]{1,1,2,1,1}));
+        assertEquals(1, Array_3.countClumps(new int[]{1,1,1,1,1}));
+        assertEquals(0, Array_3.countClumps(new int[]{}));
+        assertEquals(3, Array_3.countClumps(new int[]{1,1,2,2,3,3}));
+
+     }
 }
-
-
