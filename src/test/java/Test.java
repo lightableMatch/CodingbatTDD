@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -411,6 +412,13 @@ public class Test {
         assertEquals(1, Array_3.countClumps(new int[]{1,1,1,1,1}));
         assertEquals(0, Array_3.countClumps(new int[]{}));
         assertEquals(3, Array_3.countClumps(new int[]{1,1,2,2,3,3}));
+     }
+
+     @org.junit.jupiter.api.Test
+    public void testMaxSpan(){
+        assertEquals(4, Array_3.maxSpan(new int[]{1,2,1,1,3}));
+        assertEquals(6, Array_3.maxSpan(new int[]{1,4,2,1,4,1,4}));
+        assertEquals(6, Array_3.maxSpan(new int[]{1,4,2,1,4,4,4}));
      }
 
 }
