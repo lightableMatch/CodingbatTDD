@@ -428,4 +428,19 @@ public class Test {
         assertEquals(false, Array_2.isEverywhere(new int[]{1,2,1,3,4}, 1));
      }
 
+     @org.junit.jupiter.api.Test
+    public void testRoundSum(){
+        assertEquals(60, Logic_2.roundSum(16, 17,18));
+        assertEquals(30, Logic_2.roundSum(12,13,14));
+        assertEquals(10, Logic_2.roundSum(6,4,4));
+     }
+
+     @org.junit.jupiter.api.Test
+    public void testPairStar(){
+        assertEquals("hel*lo", Recursion_1.pairStar("hello"));
+        assertEquals("x*xy*y", Recursion_1.pairStar("xxyy"));
+        assertEquals("a*a*a*a", Recursion_1.pairStar("aaaa"));
+        assertEquals("", Recursion_1.pairStar(""));
+     }
+
 }

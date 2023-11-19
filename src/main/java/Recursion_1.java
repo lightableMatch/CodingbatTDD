@@ -41,4 +41,22 @@ The initial call will pass in index as 0.
         return array220(nums, index+1);
 
     }
+
+    /*
+    Given a string,
+    compute recursively a new string where identical chars
+    that are adjacent in the original string
+    are separated from each other by a "*".
+     */
+    public static String pairStar(String str){
+
+        if(str.length()<=1)
+            return str;
+
+        char currentChar = str.charAt(0);
+        if(currentChar == str.charAt(1))
+            return currentChar + "*" + pairStar(str.substring(1));
+        else
+            return currentChar + pairStar(str.substring(1));
+    }
 }
