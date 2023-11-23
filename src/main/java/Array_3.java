@@ -48,6 +48,101 @@ public class Array_3 {
         }
         return max;
     }
+//    public static int maxMirror(int[] nums) {
+//        int max = 1;
+//        Boolean continuous = false;
+//        Boolean startOfMirror = true;
+//        int key = 0;
+//        Map<Integer, Integer> mirrorMap = new HashMap<>();
+//        Map<Integer, Integer> reverseMirrorMap = new HashMap<>();
+//
+//        for(int i = 0; i < nums.length; i++){
+//
+//            try {
+//                continuous = nums[i] + 1 == nums[i + 1];
+//            }
+//            catch(Exception e){
+//                break;
+//            }
+//            if(continuous && startOfMirror){
+//                startOfMirror = false;
+//                key = nums[i];
+//                mirrorMap.put(key, 2);
+//            }
+//            else if (continuous) {
+//                mirrorMap.put(key, mirrorMap.get(key) + 1);
+//            }
+//            else{
+//                startOfMirror = true;
+//            }
+//
+//        }
+//        for(int i = nums.length-1; i >= 0; i--){
+//
+//            try {
+//                continuous = nums[i] + 1 == nums[i - 1];
+//            }
+//            catch(Exception e){
+//                break;
+//            }
+//            if(continuous && startOfMirror){
+//                startOfMirror = false;
+//                key = nums[i];
+//                reverseMirrorMap.put(key, 2);
+//            }
+//            else if (continuous) {
+//                reverseMirrorMap.put(key, reverseMirrorMap.get(key) + 1);
+//            }
+//            else{
+//                startOfMirror = true;
+//            }
+//
+//        }
+//
+//        for(int k : mirrorMap.keySet()){
+//            int mirrorLength = 1;
+//            if (reverseMirrorMap.containsKey(k)) {
+//               mirrorLength = Math.min(mirrorMap.get(k), reverseMirrorMap.get(k));
+//            }
+//            if(mirrorLength > max){
+//                max = mirrorLength;
+//            }
+//        }
+//
+//        return max;
+//    }
+
+//    public static int maxMirror(int[] nums) {
+//        int max = 1;
+//        Boolean continuous = false;
+//        Boolean startOfMirror = true;
+//        int key = 0;
+//        Map<Integer, Integer> mirrorMap = new HashMap<>();
+//        Map<Integer, Integer> reverseMirrorMap = new HashMap<>();
+//
+//        for(int i = 0; i < nums.length-1; i++){
+//
+//                continuous = nums[i] + 1 == nums[i + 1] || nums[i] - 1 == nums[i + 1] || nums[i + 1] == nums[i];
+//
+//            if(continuous && startOfMirror){
+//                startOfMirror = false;
+//                key = nums[i];
+//                mirrorMap.put(key, 2);
+//            }
+//            else if (continuous) {
+//                mirrorMap.put(key, mirrorMap.get(key) + 1);
+//            }
+//            else{
+//                startOfMirror = true;
+//            }
+//            if(mirrorMap.get(key) != null){
+//                max = Math.max(max, mirrorMap.get(key));
+//            }
+//
+//        }
+//
+//        return max;
+//    }
 
     public static boolean canBalance(int[] nums){
         boolean balanced = false;
@@ -188,99 +283,27 @@ public class Array_3 {
 
     }
 
-//    public static int maxMirror(int[] nums) {
-//        int max = 1;
-//        Boolean continuous = false;
-//        Boolean startOfMirror = true;
-//        int key = 0;
-//        Map<Integer, Integer> mirrorMap = new HashMap<>();
-//        Map<Integer, Integer> reverseMirrorMap = new HashMap<>();
-//
-//        for(int i = 0; i < nums.length; i++){
-//
-//            try {
-//                continuous = nums[i] + 1 == nums[i + 1];
-//            }
-//            catch(Exception e){
-//                break;
-//            }
-//            if(continuous && startOfMirror){
-//                startOfMirror = false;
-//                key = nums[i];
-//                mirrorMap.put(key, 2);
-//            }
-//            else if (continuous) {
-//                mirrorMap.put(key, mirrorMap.get(key) + 1);
-//            }
-//            else{
-//                startOfMirror = true;
-//            }
-//
-//        }
-//        for(int i = nums.length-1; i >= 0; i--){
-//
-//            try {
-//                continuous = nums[i] + 1 == nums[i - 1];
-//            }
-//            catch(Exception e){
-//                break;
-//            }
-//            if(continuous && startOfMirror){
-//                startOfMirror = false;
-//                key = nums[i];
-//                reverseMirrorMap.put(key, 2);
-//            }
-//            else if (continuous) {
-//                reverseMirrorMap.put(key, reverseMirrorMap.get(key) + 1);
-//            }
-//            else{
-//                startOfMirror = true;
-//            }
-//
-//        }
-//
-//        for(int k : mirrorMap.keySet()){
-//            int mirrorLength = 1;
-//            if (reverseMirrorMap.containsKey(k)) {
-//               mirrorLength = Math.min(mirrorMap.get(k), reverseMirrorMap.get(k));
-//            }
-//            if(mirrorLength > max){
-//                max = mirrorLength;
-//            }
-//        }
-//
-//        return max;
-//    }
+    /*
+    (This is a slightly harder version of the fix34 problem.)
+    Return an array that contains exactly the same numbers as the given array,
+    but rearranged so that every 4 is immediately followed by a 5.
+    Do not move the 4's, but every other number may move.
+    The array containes the same number of 4's and 5's,
+    and every 4 has a number after is that is not a 4.
+    In this version, 5's may appear anywhere in the original array.
+     */
+    public static int[] fix45(int[] nums){
+        return new int[]{};
+    }
 
-//    public static int maxMirror(int[] nums) {
-//        int max = 1;
-//        Boolean continuous = false;
-//        Boolean startOfMirror = true;
-//        int key = 0;
-//        Map<Integer, Integer> mirrorMap = new HashMap<>();
-//        Map<Integer, Integer> reverseMirrorMap = new HashMap<>();
-//
-//        for(int i = 0; i < nums.length-1; i++){
-//
-//                continuous = nums[i] + 1 == nums[i + 1] || nums[i] - 1 == nums[i + 1] || nums[i + 1] == nums[i];
-//
-//            if(continuous && startOfMirror){
-//                startOfMirror = false;
-//                key = nums[i];
-//                mirrorMap.put(key, 2);
-//            }
-//            else if (continuous) {
-//                mirrorMap.put(key, mirrorMap.get(key) + 1);
-//            }
-//            else{
-//                startOfMirror = true;
-//            }
-//            if(mirrorMap.get(key) != null){
-//                max = Math.max(max, mirrorMap.get(key));
-//            }
-//
-//        }
-//
-//        return max;
-//    }
+    /*
+    Given n>=0, create an array length n*n
+    with the following pattern, shown here for n=3:
+    {0,0,1 0,2,1 3,2,1} (spaces added to show groups of 3).
+     */
+    public static int[] squareUp(int n){
+        return new int[]{};
+    }
+
+
 }

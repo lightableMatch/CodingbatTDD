@@ -443,4 +443,31 @@ public class Test {
         assertEquals("", Recursion_1.pairStar(""));
      }
 
+     @org.junit.jupiter.api.Test
+    public void testBunnyEars2(){
+        assertEquals(0, Recursion_1.bunnyEars2(0));
+        assertEquals(2, Recursion_1.bunnyEars2(1));
+        assertEquals(5, Recursion_1.bunnyEars2(2));
+     }
+
+     @org.junit.jupiter.api.Test
+    public void testFix45(){
+        assertEquals(new int[]{9,4,5,4,5,9}, Array_3.fix45(new int[]{5,4,9,4,9,5}));
+        assertEquals(new int[]{1,4,5,1}, Array_3.fix45(new int[]{1,4,1,5}));
+        assertEquals(new int[]{1,4,5,1,1,4,5}, Array_3.fix45(new int[]{1,4,1,5,5,4,1}));
+     }
+
+     @org.junit.jupiter.api.Test
+    public void testSquareUp(){
+        assertEquals(new int[]{0,0,1,0,2,1,3,2,1}, Array_3.squareUp(3));
+         assertEquals(new int[]{0,1,2,1}, Array_3.squareUp(2));
+         assertEquals(new int[]{0,0,0,1,0,0,2,1,0,3,2,1,4,3,2,1}, Array_3.squareUp(4));
+     }
+
+     @org.junit.jupiter.api.Test
+    public void testMakeBricks(){
+        assertEquals(true, Logic_2.makeBricks(3,1,8));
+        assertEquals(false, Logic_2.makeBricks(3,1,9));
+        assertEquals(true, Logic_2.makeBricks(3,2,10));
+     }
 }
